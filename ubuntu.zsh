@@ -45,16 +45,3 @@ zfs list
 # own mount points
 sudo chown atheistd:root -R /heathen_disk
 sudo chmod 774 -R /heathen_disk
-
-
-# create nfs user
-sudo useradd -m nfs_user
-sudo passwd nfs_user
-cd /home/nfs_user/
-sudo ln -s <path to mount-point /home/atheistd/ssd_mount> ./heathen_disk
-sudo chmod 774 -R heathen_disk
-sudo chown nfs_user:nfs_user -R heathen_disk
-
-
-
-
