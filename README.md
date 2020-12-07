@@ -60,5 +60,5 @@ zfs list
 
 ```
 sudo chown atheistd:root -R /heathen_disk
-sudo chmod 774 -R /heathen_disk
+sudo chmod 770 -R /heathen_disk
 ```
