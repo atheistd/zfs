@@ -1,4 +1,4 @@
-# update & install
+### update & install
 
 ```
 sudo apt update
@@ -7,7 +7,7 @@ sudo apt install zfsutils-linux -y
 ```
 
 
-# create pools & datasets
+### create pools & datasets
 
 ```
 sudo zpool create heathen_disk raidz1 <devs>
@@ -28,7 +28,7 @@ sudo zfs create heathen_disk/work/nix
 ```
 
 
-# set dataset properties
+### set dataset properties
 
 ```
 sudo zfs set atime=off heathen_disk
@@ -48,7 +48,7 @@ sudo zfs set compression=gzip-9 heathen_disk/personal/fonts
 ```
 
 
-# verify created pools
+### verify created pools
 
 ```
 zpool status -v
@@ -56,7 +56,7 @@ zfs list
 ```
 
 
-# own mount points
+### own mount points
 
 ```
 sudo chown atheistd:root -R /heathen_disk
