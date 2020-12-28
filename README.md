@@ -10,7 +10,7 @@ sudo apt install zfsutils-linux -y
 ### create pools & datasets
 
 ```
-sudo zpool create heathen_disk raidz1 <devs>
+sudo zpool create -o ashift=12 heathen_disk raidz1 <devs>
 sudo zfs create heathen_disk/personal
 sudo zfs create heathen_disk/work
 
@@ -32,8 +32,10 @@ sudo zfs create heathen_disk/work/nix
 
 ```
 sudo zfs set atime=off heathen_disk
-sudo zfs set primarycache=none heathen_disk
+sudo zfs set primarycache=none heathen_disk (only on the workstation and not on the server)
 sudo zfs set snapdir=visible heathen_disk
+sudo zfs set xattr=sa heathen_disk
+sudo zfs set compression=lz4 heathen_disk
 
 sudo zfs set checksum=sha512 heathen_disk/work
 sudo zfs set copies=2 heathen_disk/work/ml_datasets
@@ -41,10 +43,6 @@ sudo zfs set copies=2 heathen_disk/work/ml_datasets
 sudo zfs set checksum=sha512 heathen_disk/personal/media
 sudo zfs set copies=2 heathen_disk/personal/media
 sudo zfs set compression=off heathen_disk/personal/media
-
-sudo zfs set compression=gzip-9 heathen_disk/personal/z_pesky
-sudo zfs set compression=gzip-9 heathen_disk/personal/backup
-sudo zfs set compression=gzip-9 heathen_disk/personal/fonts
 ```
 
 
