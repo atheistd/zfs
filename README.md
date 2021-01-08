@@ -57,6 +57,6 @@ zfs list
 ### own mount points
 
 ```
-sudo chown atheistd:root -R /heathen_disk
+sudo chown atheistd:atheistd -R /heathen_disk
 sudo chmod 770 -R /heathen_disk
 ```
